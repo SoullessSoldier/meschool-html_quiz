@@ -15,15 +15,15 @@
 — Применять делегирование\
 — Используем деструктуризацию\
 — Воспользуемся AJAX и получение данных с помощью fetch\
-— Git и GitHub\
+— Git и GitHub
 
 ### Day 1 ###
 Начинаем проект HTML\
-CSS\
+CSS
 
 **Ссылки**
 Макет - Quiz\
 figma.com - зарегистрироваться в figma\
 reset.css - скачать\
-Шрифты woff2 и woff google.fonts
+Шрифты woff2 и woff google.fonts - https://google-webfonts-helper.herokuapp.com/fonts
 

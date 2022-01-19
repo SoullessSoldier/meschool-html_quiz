@@ -78,6 +78,13 @@ button{
     color: #296C82;
     display: block;
     margin: 0 auto;
+    transition-property: background-color, color;
+    transition-duration: 0.25s;
+    transition-timing-function: ease; 
+}
+.main__btn:hover{
+    background-color: #296C82;
+    color: #fff;
 }
 
 .main__box{
@@ -132,6 +139,14 @@ button{
     text-align: left;
     padding: 16px 20px;
     overflow: hidden;
+    transition-property: background-color;
+    transition-duration:  0.25s;
+    transition-timing-function:  ease;
+}
+
+
+.selection__theme:hover{
+    background-color: #e3f4f8;
 }
 
 .selection__theme:not(:last-child){
@@ -337,8 +352,72 @@ button{
 }
 
 .result_return{
-
+    /**/
 }
 
 
-/*43:34*/
+@media (max-width: 1024px){
+    .selection__list {
+        padding-right: 30px;
+    }
+    .selection__theme{
+        font-size: 20px;
+    }    
+}
+
+@media (max-width: 768px){
+    .header__container{
+        padding: 0 20px;
+    }
+    .main{
+        padding: 40px 20px;
+    }
+    .main__title{
+        font-size: 34px;
+    }
+    .main__box{
+        padding: 40px;
+    }
+    .selection__list{
+        padding-right: 15px;
+    }
+    .selection__theme{
+        font-size: 18px;
+        padding: 10px 15px;
+    }
+    .selection__item{
+        margin-bottom: 10px;
+    }
+    .selection__result{
+        display: flex;
+        align-items: center;
+    }
+    .selection__result-text{
+        display: none;
+    }
+    .selection__theme:not(:last-child){
+        margin-right: 15px;
+    }
+}
+@media (max-width: 580px){
+    .main__btn:not(.result__return){
+        margin-left: 0;
+        min-width: 100%;
+    }
+    .main__form_question::after{
+        bottom: -30px;
+    }
+    .main__subtitle{
+        font-size: 20px;
+    }
+    .main{
+        padding: 30px 10px;
+    }
+    .main__box{
+        padding: 15px;
+        border-radius: 15px;
+    }
+    .selection__result-ratio{
+        font-size: 18px;
+    }
+}

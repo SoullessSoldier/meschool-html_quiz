@@ -76,6 +76,8 @@ button{
     outline: none;
     font-weight: 600;
     color: #296C82;
+    display: block;
+    margin: 0 auto;
 }
 
 .main__box{
@@ -95,6 +97,17 @@ button{
     flex-direction: column;
     overflow-y: auto;
     max-height: 100%;
+    scrollbar-color: rgba(140, 140, 140, 0.1);
+    scrollbar-width: thin;
+}
+
+.selection__list::-webkit-scrollbar{
+    width: 6px;
+
+}
+.selection__list::-webkit-scrollbar-thumb{
+    background: rgba(140, 140, 140, 0.1);
+    border-radius: 8px;
 }
 
 .selection__item{
@@ -126,7 +139,8 @@ button{
 }
 
 .selection__result{
-    max-width: 63px;
+    /*max-width: 63px;*/
+    width: min-content;
     text-align: center;
 }
 
@@ -144,3 +158,187 @@ button{
     line-height: 110%;
     color: #8C8C8C;
 }
+
+.main__box_question{
+    padding: 60px 120px;
+    height: auto;
+    min-height: 540px;
+}
+
+.main__form_question{
+    position: relative;
+}
+
+.main__form_question::after{
+    content: attr(data-count);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-weight: 300;
+    font-size: 18px;
+    color: #8C8C8C;
+}
+
+
+.answer{
+    position: relative;
+    display: block;
+    margin-bottom: 26px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 40px;
+    padding-left: 65px;
+ 
+}
+
+.answer__checkbox{
+    position: absolute;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 40px;
+    height: 40px;
+    margin: 0 0 0 -65px;
+    cursor: pointer;
+}
+
+.answer__checkbox::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;width: 40px;
+    height: 40px;
+    background-color: #fff;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+}
+
+.answer__checkbox::after{
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 12px;
+    height: 8px;
+    width: 17px;
+    border: 2px solid #434343;
+    border-top: none;
+    border-right: none;
+    /*
+    border-style: solid;
+    border-color: #434343;
+    border-width: 0 0 2px 2px;
+    */
+    transform: rotate(-45deg);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.answer__checkbox:checked::after{
+    opacity: 1;
+}
+
+.answer__checkbox:focus::before,
+.answer__checkbox:hover::before{
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+
+.answer__radio{
+    position: absolute;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 40px;
+    height: 40px;
+    margin: 0 0 0 -65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.answer__radio::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;width: 40px;
+    height: 40px;
+    background-color: #fff;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+}
+
+.answer__radio::after{
+    content: '';
+    position: relative;
+    z-index: inherit;
+    height: 14px;
+    width: 14px;
+    background-color: #434343;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.answer__radio:checked::after{
+    opacity: 1;
+}
+
+.answer__radio:focus::before,
+.answer__radio:hover::before{
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.main__box_result{
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.result__box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: auto;
+}
+
+.result__ratio{
+    width: 127px;
+    height: 127px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #8c8c8c;
+    border-radius: 50%;
+    font-weight: 600;
+    font-size: 32px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.result_ratio_1{
+    background-color: #dc1c1c;
+}
+.result_ratio_2{
+    background-color: #efcf24;
+}
+.result_ratio_3{
+    background-color: #49f050;
+}
+
+.result__text{
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.result_return{
+
+}
+
+
+/*43:34*/

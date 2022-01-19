@@ -27,3 +27,11 @@ figma.com - зарегистрироваться в figma\
 reset.css - скачать\
 Шрифты woff2 и woff google.fonts - https://google-webfonts-helper.herokuapp.com/fonts
 
+### Day 2 ###
+CSS / Адаптив
+
+**Необязательное задание:**
+Добавить hover active и focus эффекты с помощью псевдоклассов\
+А так же стилизовать на свой вкус (цвета/шрифты)
+
+

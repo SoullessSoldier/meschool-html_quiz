@@ -17,42 +17,42 @@ const getData = () => {
             list: [
                 {
                     type: 'checkbox',
-                    question: 'Вопрос',
-                    answer: ['Правильный1', 'Правильный2', 'Неправильный1', 'Неправильный2'],
+                    question: 'Вопрос1',
+                    answers: ['Правильный1', 'Правильный2', 'Неправильный1', 'Неправильный2'],
                     correct: 2,
                 },
                 {
                     type: 'radio',
-                    question: 'Вопрос',
-                    answer: ['Правильный', 'Неправильный1', 'Неправильный2', 'Неправильный3'],
+                    question: 'Вопрос2',
+                    answers: ['Правильный', 'Неправильный1', 'Неправильный2', 'Неправильный3'],
                 },
                 {
                     type: 'checkbox',
-                    question: 'Вопрос',
-                    answer: ['Правильный1', 'Правильный2', 'Неправильный1', 'Неправильный2'],
+                    question: 'Вопрос3',
+                    answers: ['Правильный1', 'Правильный2', 'Неправильный1', 'Неправильный2'],
                     correct: 2,
                 },
                 {
                     type: 'radio',
-                    question: 'Вопрос',
-                    answer: ['Правильный', 'Неправильный1', 'Неправильный2', 'Неправильный3'],                    
+                    question: 'Вопрос4',
+                    answers: ['Правильный', 'Неправильный1', 'Неправильный2', 'Неправильный3'],                    
                 },
                 {
                     type: 'checkbox',
-                    question: 'Вопрос',
-                    answer: ['Правильный1', 'Правильный2', 'Правильный3', 'Неправильный1'],
+                    question: 'Вопрос5',
+                    answers: ['Правильный1', 'Правильный2', 'Правильный3', 'Неправильный1'],
                     correct: 3,
                 },
                 {
                     type: 'radio',
-                    question: 'Вопрос',
-                    answer: ['Правильный', 'Неправильный1', 'Неправильный2', 'Неправильный3'],
+                    question: 'Вопрос6',
+                    answers: ['Правильный', 'Неправильный1', 'Неправильный2', 'Неправильный3'],
                     correct: 2,
                 },
                 {
                     type: 'checkbox',
-                    question: 'Вопрос',
-                    answer: ['Правильный1', 'Неправильный1', 'Неправильный2', 'Неправильный3'],
+                    question: 'Вопрос7',
+                    answers: ['Правильный1', 'Неправильный1', 'Неправильный2', 'Неправильный3'],
                     correct: 1,
                 },
             ]
@@ -68,36 +68,36 @@ const getData = () => {
             list: [                
                 {
                     type: 'radio',
-                    question: 'Вопрос',
-                    answer: ['Правильный', 'Неправильный1', 'Неправильный2', 'Неправильный3'],
+                    question: 'Вопрос1',
+                    answers: ['Правильный', 'Неправильный1', 'Неправильный2', 'Неправильный3'],
                 },
                 {
                     type: 'checkbox',
-                    question: 'Вопрос',
-                    answer: ['Правильный1', 'Правильный2', 'Неправильный1', 'Неправильный2'],
+                    question: 'Вопрос2',
+                    answerss: ['Правильный1', 'Правильный2', 'Неправильный1', 'Неправильный2'],
                     correct: 2,
                 },
                 {
                     type: 'radio',
-                    question: 'Вопрос',
-                    answer: ['Правильный', 'Неправильный1', 'Неправильный2', 'Неправильный3'],                    
+                    question: 'Вопрос3',
+                    answers: ['Правильный', 'Неправильный1', 'Неправильный2', 'Неправильный3'],                    
                 },
                 {
                     type: 'checkbox',
-                    question: 'Вопрос',
-                    answer: ['Правильный1', 'Правильный2', 'Правильный3', 'Неправильный1'],
+                    question: 'Вопрос4',
+                    answers: ['Правильный1', 'Правильный2', 'Правильный3', 'Неправильный1'],
                     correct: 3,
                 },
                 {
                     type: 'radio',
-                    question: 'Вопрос',
-                    answer: ['Правильный', 'Неправильный1', 'Неправильный2', 'Неправильный3'],
+                    question: 'Вопрос5',
+                    answers: ['Правильный', 'Неправильный1', 'Неправильный2', 'Неправильный3'],
                     correct: 2,
                 },
                 {
                     type: 'checkbox',
-                    question: 'Вопрос',
-                    answer: ['Правильный1', 'Неправильный1', 'Неправильный2', 'Неправильный3'],
+                    question: 'Вопрос6',
+                    answers: ['Правильный1', 'Неправильный1', 'Неправильный2', 'Неправильный3'],
                     correct: 1,
                 },
             ]
@@ -142,9 +142,66 @@ const renderTheme = (themes) => {
     return buttons;
 };
 
+const createAnswer = (data) => {
+    const type = data.type;
+
+    return data.answers.map(item => {
+        const label = document.createElement('label');
+        label.classList.add('answer');
+        const input = document.createElement('input');
+        input.type = type;
+        input.name = 'answer';
+        input.classList.add(`answer__${type}`);
+        const text = document.createTextNode(item);
+        label.append(input, text);
+        return label; 
+    });
+}
+
 const renderQuiz = quiz => {
     hideElem(mainTitle);
     hideElem(selection);
+    const questionBox = document.createElement('div');
+    questionBox.classList.add('main__box', 'main__box_question');
+    main.append(questionBox);
+    
+    let questionCount = 0;
+    const showQuestion = () => {
+        const data = quiz.list[questionCount];
+        questionCount += 1;
+        questionBox.textContent = '';
+        const form = document.createElement('form');
+        form.classList.add('main__form_question');
+        form.dataset.count = `${questionCount}/${quiz.list.length}`;
+
+        const fieldset = document.createElement('fieldset');
+        const legend = document.createElement('legend');
+        legend.classList.add('main__subtitle');
+        legend.textContent = data.question;
+
+        const answers = createAnswer(data);
+        
+        const button = document.createElement('button');
+        button.classList.add('main__btn', 'question__next');
+        button.type = 'submit';
+        button.textContent = 'Подтвердить';
+
+        fieldset.append(legend, ...answers);
+        form.append(fieldset, button);
+        
+        questionBox.append(form);
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            let flag = false;
+            const answer = [...form.answer].map((input) => {
+                if (input.checked) flag = true;
+                return input.checked ? input.checked : 'false';
+            });
+            
+            
+        });
+    };
+    showQuestion();
 };
 
 const addClick = (buttons, data) => {

@@ -178,10 +178,12 @@ button{
     padding: 60px 120px;
     height: auto;
     min-height: 540px;
+    opacity: 0;
 }
 
 .main__form_question{
     position: relative;
+    opacity: 0;
 }
 
 .main__form_question::after{
@@ -312,7 +314,18 @@ button{
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+    opacity: 0;
+}
+
+.main__form_question_error .answer__checkbox::before,
+.main__form_question_error .answer__radio::before{
+    animation: blink .3s ease-in-out 3;
+}
+
+@keyframes blink {
+    to {
+        box-shadow: 0px 2px 10px rgba(255, 0, 0, 0.55);
+    }
 }
 
 .result__box{
@@ -336,13 +349,13 @@ button{
     margin-bottom: 20px;
 }
 
-.result_ratio_1{
+.result__ratio_1{
     background-color: #dc1c1c;
 }
-.result_ratio_2{
+.result__ratio_2{
     background-color: #efcf24;
 }
-.result_ratio_3{
+.result__ratio_3{
     background-color: #49f050;
 }
 
